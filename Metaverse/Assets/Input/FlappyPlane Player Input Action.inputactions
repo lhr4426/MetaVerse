@@ -1,0 +1,45 @@
+{
+    "name": "FlappyPlane Player Input Action",
+    "maps": [
+        {
+            "name": "Plane",
+            "id": "abd1da9f-3145-40a3-bf3c-9fe04bf7f44b",
+            "actions": [
+                {
+                    "name": "Flap",
+                    "type": "Value",
+                    "id": "a0806116-9bb4-4376-84b2-ddb9b96d9a77",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "8ab23fc5-1514-4d06-b87a-b5c929933e2e",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Flap",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "435037c0-200f-487f-a4d8-7400b1c320a8",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Flap",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
