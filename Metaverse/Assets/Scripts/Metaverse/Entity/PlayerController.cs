@@ -85,6 +85,22 @@ namespace Metaverse
             }
 
         }
+
+        void OnInteraction(InputValue inputValue)
+        {
+            if(inputValue.isPressed)
+            {
+                Debug.Log("상호작용 키 입력됨");
+                Debug.Log($"{LookDirection} 방향 보는 중");
+                RaycastHit2D hit = Physics2D.Raycast(transform.position, LookDirection, 2f, LayerMask.GetMask("NPC"));
+                if (hit.collider != null && hit.collider.CompareTag("NPC"))
+                {
+                    Debug.Log("NPC와 상호작용 시도");
+                    BaseNPC npc = hit.collider.GetComponent<BaseNPC>();
+                    npc.ShowMessage();
+                }
+            }
+        }
     }
 }
 

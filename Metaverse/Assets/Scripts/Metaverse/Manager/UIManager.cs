@@ -1,0 +1,40 @@
+using System.Collections;
+using System.Collections.Generic;
+using TMPro;
+using UnityEngine;
+
+namespace Metaverse 
+{
+    public class UIManager : MonoBehaviour
+    {
+        private UIManager instance;
+        public UIManager Instance { get; private set; }
+
+        public TextMeshProUGUI roomText;
+
+        private void Awake()
+        {
+            instance = this;
+
+            BaseRoom[] Rooms = FindObjectsByType<BaseRoom>(sortMode: FindObjectsSortMode.None);
+
+            foreach (var rooms in Rooms)
+            {
+                rooms.Init(this);
+            }
+        }
+
+        public void EnterRoom(string roomName)
+        {
+            roomText.text = roomName;
+        }
+
+        public void ExitRoom()
+        {
+            roomText.text = "";
+        }
+    }
+
+}
+
+
