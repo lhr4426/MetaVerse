@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 namespace Metaverse
 {
@@ -31,13 +32,9 @@ namespace Metaverse
             _rigidbody = GetComponent<Rigidbody2D>();
             characterRenderer = GetComponentInChildren<SpriteRenderer>();
             camera = Camera.main;
+            
         }
-        // Start is called before the first frame update
-        void Start()
-        {
-
-        }
-
+        
         // Update is called once per frame
         void Update()
         {
@@ -49,6 +46,28 @@ namespace Metaverse
             Movement(MovementDirection);
         }
 
+        private void OnEnable()
+        {
+            Time.timeScale = 1.0f;
+            SceneManager.sceneLoaded += OnSceneLoaded;
+        }
+
+        private void OnDisable()
+        {
+            SceneManager.sceneLoaded -= OnSceneLoaded;
+        }
+
+        public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+        {
+            if(GlobalManager.instance.lastPosition != Vector2.zero)
+            {
+                transform.position = GlobalManager.instance.lastPosition;
+            }
+            else
+            {
+                transform.position = Vector2.zero;
+            }
+        }
 
         private void Rotate(Vector2 direction)
         {
@@ -92,12 +111,22 @@ namespace Metaverse
             {
                 Debug.Log("상호작용 키 입력됨");
                 Debug.Log($"{LookDirection} 방향 보는 중");
-                RaycastHit2D hit = Physics2D.Raycast(transform.position, LookDirection, 2f, LayerMask.GetMask("NPC"));
-                if (hit.collider != null && hit.collider.CompareTag("NPC"))
+                LayerMask npcAndInteractive = LayerMask.GetMask("NPC") | LayerMask.GetMask("Interactive");
+                RaycastHit2D hit = Physics2D.Raycast(transform.position, LookDirection, 2f, npcAndInteractive);
+                if (hit.collider != null)
                 {
-                    Debug.Log("NPC와 상호작용 시도");
-                    BaseNPC npc = hit.collider.GetComponent<BaseNPC>();
-                    npc.ShowMessage();
+                    if (hit.collider.CompareTag("NPC"))
+                    {
+                        Debug.Log("NPC와 상호작용 시도");
+                        BaseNPC npc = hit.collider.GetComponent<BaseNPC>();
+                        npc.ShowMessage();
+                    }
+                    else if (hit.collider.CompareTag("Interactive"))
+                    {
+                        BaseInteractive interactive = hit.collider.GetComponent<BaseInteractive>();
+                        interactive.Interact();
+                    }
+                    
                 }
             }
         }

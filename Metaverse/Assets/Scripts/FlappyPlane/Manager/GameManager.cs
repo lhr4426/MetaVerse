@@ -15,7 +15,7 @@ namespace FlappyPlane
         UIManager uiManager;
         public UIManager UIManager { get { return uiManager; } }
 
-        private static bool isFirstLoading = true;
+        public static bool isFirstLoading = true;
 
         private string bestScoreKey = "BestScore";
 

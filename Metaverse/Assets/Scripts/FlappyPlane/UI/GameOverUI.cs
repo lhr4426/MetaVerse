@@ -1,3 +1,4 @@
+using Metaverse;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -51,7 +52,7 @@ namespace FlappyPlane
 
         public void OnClickExit()
         {
-            // 이전 씬으로 돌아가게 해야함
+            GlobalManager.instance.SceneChange(SceneNumber.Metaverse);
         }
 
 
