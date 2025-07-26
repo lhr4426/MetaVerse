@@ -11,17 +11,10 @@ namespace CodeShooter
 
         [SerializeField] private TextMeshProUGUI timeText;
         [SerializeField] private TextMeshProUGUI scoreText;
-        private GameManager gameManager;
 
-        private void Awake()
+        public void SetTime(float time)
         {
-            gameManager = FindObjectOfType<GameManager>();
-        }
-
-        public void SetTime()
-        {
-            float timeLimit = gameManager.TimeLimit;
-            timeText.text = timeLimit.ToString("N2") + "√ ";
+            timeText.text = time.ToString("N2") + "√ ";
         }
 
         public void SetScore(int score)

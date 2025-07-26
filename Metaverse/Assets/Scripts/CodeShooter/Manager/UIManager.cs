@@ -21,6 +21,13 @@ namespace CodeShooter
         private PauseUI pauseUI;
         private GameOverUI gameOverUI;
 
+        private GameManager gameManager;
+
+        public void Init(GameManager gameManager)
+        {
+            this.gameManager = gameManager;
+        }
+
         private void Awake()
         {
             homeUI = GetComponentInChildren<HomeUI>(true);
@@ -56,13 +63,18 @@ namespace CodeShooter
             Debug.Log("게임 시작");
         }
 
+        public void StartButton()
+        {
+            gameManager.StartGame();
+        }
+
         public void SetGameOver(int score, int bestScore)
         {
             currentState = UIState.GameOver;
             Time.timeScale = 0f;
             ChangeUI(currentState);
-            // gameOverUI.SetScore(score);
-           // gameOverUI.SetBestScore(bestScore);
+            gameOverUI.SetScore(score);
+            gameOverUI.SetBestScore(bestScore);
         }
 
         public void UpdateScore(int score)
@@ -86,10 +98,10 @@ namespace CodeShooter
             ChangeUI(currentState);
         }
 
-        public void SetTime()
+        public void SetTime(float time)
         {
             if (gameUI.enabled)
-                gameUI.SetTime();
+                gameUI.SetTime(time);
         }
     }
 

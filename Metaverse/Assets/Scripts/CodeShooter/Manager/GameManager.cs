@@ -18,7 +18,8 @@ namespace CodeShooter
         UIManager uiManager;
         public UIManager UIManager { get { return uiManager; } }
 
-        
+        SpawnManager spawnManager;
+        public SpawnManager SpawnManager { get { return spawnManager; } }
 
 
 
@@ -36,6 +37,8 @@ namespace CodeShooter
             instance = this;
             bestScoreKey = "ShooterBestScore";
             uiManager = FindObjectOfType<UIManager>();
+            uiManager.Init(this);
+            spawnManager = FindObjectOfType<SpawnManager>();
         }
 
         private void Start()
@@ -45,12 +48,10 @@ namespace CodeShooter
 
         private void Update()
         {
-            // Debug.Log("Tick");
             if(isPlaying)
             {
-                Debug.Log("Tock");
                 timeLimit -= Time.deltaTime;
-                uiManager.SetTime();
+                uiManager.SetTime(timeLimit);
                 if(TimeLimit <= 0f)
                 {
                     isPlaying = false;
@@ -63,6 +64,7 @@ namespace CodeShooter
         {
             Debug.Log("Game Start");
             uiManager.GameStart();
+            spawnManager.GameStart();
             timeLimit = maxTime;
             isPlaying = true;
             isPaused = false;
@@ -72,6 +74,7 @@ namespace CodeShooter
         public override void GameOver()
         {
             Debug.Log("Game Over!");
+            spawnManager.Pause();
             int bestScore = PlayerPrefs.GetInt(bestScoreKey, 0);
             if (currentScore > bestScore)
             {
@@ -84,7 +87,12 @@ namespace CodeShooter
             {
                 Destroy(bullet);
             }
+            foreach (var enemy in GameObject.FindGameObjectsWithTag("Enemy"))
+            {
+                Destroy(enemy);
+            }
             uiManager.SetGameOver(currentScore, bestScore);
+
             
         }
 
@@ -99,8 +107,13 @@ namespace CodeShooter
         {
             if (inputValue.isPressed)
             {
+                // player는 일시정지되었을 때 보이지 않아야 함
+                // isPause == true 일 때 player 는 보이지 않아야 하기 때문에
+                // 우선 isPaused로 하고 이후에 반대로 변경
                 Player.SetActive(isPaused);
                 isPaused = !isPaused;
+                if (isPaused) spawnManager.Pause();
+                else spawnManager.GameStart();
                 uiManager.PauseGame();
             }
         }

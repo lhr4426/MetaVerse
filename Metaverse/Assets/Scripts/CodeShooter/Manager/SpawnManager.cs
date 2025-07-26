@@ -10,7 +10,7 @@ namespace CodeShooter
         [SerializeField] private float spawnDelay;
         public float SpawnDelay { get { return spawnDelay; } }
 
-        [SerializeField] private Sprite[] npcSprites;
+        [SerializeField] public Sprite[] npcSprites;
         public Sprite[] NPCSprites { get { return npcSprites; } }
 
         [SerializeField] private GameObject npcPrefab;
@@ -26,6 +26,8 @@ namespace CodeShooter
         {
             gameManager = FindObjectOfType<GameManager>();
             rectTransform = GetComponent<RectTransform>();
+            if (NPCSprites.Length == 0)
+                Debug.LogError("No Sprites");
         }
 
         private void Start()
@@ -36,20 +38,28 @@ namespace CodeShooter
 
         public void GameStart()
         {
+            InvokeRepeating("SpawnEnemy", 0.2f, SpawnDelay);
+        }
 
+        public void Pause()
+        {
+            CancelInvoke();
         }
 
         public void SpawnEnemy()
         {
             int spriteNum = Random.Range(0, npcSprites.Length);
+            Sprite sprite = npcSprites[spriteNum];
             Vector3 randomPos = new Vector3(
                 Random.Range(-XRange, XRange), 
                 Random.Range(-YRange, YRange)
                 );
-
+            GameObject go = Instantiate(NPCPrefab, randomPos, Quaternion.identity);
+            Enemy enemy = go.GetComponent<Enemy>();
+            enemy.Init(gameManager);
+            Debug.Log($"Sprite Number : {spriteNum}");
+            enemy.SetSprite(sprite);
         }
-
-
     }
 
 }

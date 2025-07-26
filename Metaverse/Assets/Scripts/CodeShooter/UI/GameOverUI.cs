@@ -37,12 +37,12 @@ namespace CodeShooter
 
         public void SetScore(int score)
         {
-            scoreText.text = score.ToString();
+            scoreText.text = score.ToString() + "Á¡";
         }
 
         public void SetBestScore(int bestScore)
         {
-            bestScoreText.text = bestScore.ToString();
+            bestScoreText.text = bestScore.ToString() + "Á¡";
         }
 
         public void OnClickRestart()

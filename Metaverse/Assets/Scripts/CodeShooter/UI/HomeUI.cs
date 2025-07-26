@@ -11,14 +11,7 @@ namespace CodeShooter
         [SerializeField] private Button startButton;
         [SerializeField] private Button exitButton;
 
-        GameManager gameManager;
-
         public override UIState UiState => UIState.Home;
-
-        private void Awake()
-        {
-            gameManager = FindObjectOfType<GameManager>();
-        }
 
         private void Start()
         {
@@ -31,7 +24,7 @@ namespace CodeShooter
 
         public void OnClickStart()
         {
-            gameManager.StartGame();
+            uiManager.StartButton();
         }
 
         public void OnClickExit()
