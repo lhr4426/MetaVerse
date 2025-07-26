@@ -24,7 +24,7 @@ namespace FlappyPlane
         // Start is called before the first frame update
         void Start()
         {
-            gameManager = GameManager.instance;
+            gameManager = (GameManager)GameManager.instance;
 
             animator = GetComponentInChildren<Animator>();
             _rigidbody = GetComponent<Rigidbody2D>();

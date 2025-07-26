@@ -9,6 +9,10 @@ namespace CodeShooter
     {
         private Camera camera;
 
+        [Header("Shoot Settings")]
+        [SerializeField] private GameObject bullet;
+        [SerializeField] private GameObject projectilePivot;
+
 
         private void Awake()
         {
@@ -33,6 +37,15 @@ namespace CodeShooter
             Vector2 worldPos = camera.ScreenToWorldPoint(mousePos);
             transform.position = new Vector2(worldPos.x, transform.position.y);
             // 마우스 좌우만 이동하도록
+        }
+
+        void OnFire(InputValue inputValue)
+        {
+            if (inputValue.isPressed)
+            {
+
+                Instantiate(bullet, projectilePivot.transform);
+            }
         }
     }
 }

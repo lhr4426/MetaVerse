@@ -22,7 +22,7 @@ namespace FlappyPlane
 
         private void Start()
         {
-            gameManager = GameManager.instance;
+            gameManager = (GameManager)GameManager.instance;
         }
 
         public Vector3 SetRandomPlace(Vector3 lastPosition, int obstacleCount)

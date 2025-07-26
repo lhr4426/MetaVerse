@@ -1,49 +1,50 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 
-namespace FlappyPlane
+namespace CodeShooter
 {
-
     public enum UIState
     {
         Home,
         Game,
+        Pause,
         GameOver
     }
-
     public class UIManager : MonoBehaviour
     {
         private UIState currentState;
 
         private HomeUI homeUI;
         private GameUI gameUI;
+        private PauseUI pauseUI;
         private GameOverUI gameOverUI;
-
-        
 
         private void Awake()
         {
-            homeUI = GetComponentInChildren<HomeUI>(true);
+            homeUI = FindObjectOfType<HomeUI>();
             homeUI.Init(this);
 
-            gameUI = GetComponentInChildren<GameUI>(true);
+            gameUI = FindObjectOfType<GameUI>();
             gameUI.Init(this);
 
-            gameOverUI = GetComponentInChildren<GameOverUI>(true);
+            pauseUI = FindObjectOfType<PauseUI>();
+            pauseUI.Init(this);
+
+            gameOverUI = FindObjectOfType<GameOverUI>();
             gameOverUI.Init(this);
 
             ChangeUI(currentState);
         }
-        
 
         void ChangeUI(UIState state)
         {
             homeUI.SetActive(state);
             gameUI.SetActive(state);
+            pauseUI.SetActive(state);
             gameOverUI.SetActive(state);
         }
+
 
         public void GameStart()
         {
@@ -66,15 +67,31 @@ namespace FlappyPlane
             currentState = UIState.GameOver;
             Time.timeScale = 0f;
             ChangeUI(currentState);
-            gameOverUI.SetScore(score);
-            gameOverUI.SetBestScore(bestScore);
+            // gameOverUI.SetScore(score);
+           // gameOverUI.SetBestScore(bestScore);
         }
 
         public void UpdateScore(int score)
         {
-            gameUI.SetScore(score);
+            // gameUI.SetScore(score);
         }
-        
-    }
-}
 
+        public void PauseGame(bool isPause)
+        {
+            // TODO : Pause 구현하기
+            if (isPause)
+            {
+                currentState = UIState.Pause;
+                Time.timeScale = 0f;
+            }
+            else
+            {
+                currentState = UIState.Game;
+                Time.timeScale = 1f;
+            }
+                
+            ChangeUI(currentState);
+        }
+    }
+
+}

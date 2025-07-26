@@ -1,20 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-namespace FlappyPlane
+namespace CodeShooter
 {
     public class GameManager : Global.GameManager
     {
+
         UIManager uiManager;
         public UIManager UIManager { get { return uiManager; } }
 
+        private bool isPause = false;
 
         private void Awake()
         {
             instance = this;
-            bestScoreKey = "FlappyBestScore";
+            bestScoreKey = "ShooterBestScore";
             uiManager = FindObjectOfType<UIManager>();
         }
 
@@ -36,6 +37,13 @@ namespace FlappyPlane
             uiManager.UpdateScore(currentScore);
         }
 
+        public void Pause()
+        {
+            isPause = !isPause;
+            uiManager.PauseGame(isPause);
+        }
+
+        
     }
 }
 
