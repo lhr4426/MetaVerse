@@ -10,19 +10,46 @@ namespace CodeShooter
         [SerializeField] private float spawnDelay;
         public float SpawnDelay { get { return spawnDelay; } }
 
-        [SerializeField] private Enemy[] npcPrefabs;
-        public Enemy[] NPCPrefabs { get { return npcPrefabs; } }
+        [SerializeField] private Sprite[] npcSprites;
+        public Sprite[] NPCSprites { get { return npcSprites; } }
 
-        void Start()
+        [SerializeField] private GameObject npcPrefab;
+        public GameObject NPCPrefab { get { return npcPrefab; } }
+
+        GameManager gameManager;
+        RectTransform rectTransform;
+
+        float XRange;
+        float YRange;
+
+        private void Awake()
+        {
+            gameManager = FindObjectOfType<GameManager>();
+            rectTransform = GetComponent<RectTransform>();
+        }
+
+        private void Start()
+        {
+            XRange = rectTransform.sizeDelta.x / 2;
+            YRange = rectTransform.sizeDelta.y / 2;
+        }
+
+        public void GameStart()
         {
 
         }
 
-        // Update is called once per frame
-        void Update()
+        public void SpawnEnemy()
         {
+            int spriteNum = Random.Range(0, npcSprites.Length);
+            Vector3 randomPos = new Vector3(
+                Random.Range(-XRange, XRange), 
+                Random.Range(-YRange, YRange)
+                );
 
         }
+
+
     }
 
 }

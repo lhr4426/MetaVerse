@@ -8,8 +8,6 @@ namespace CodeShooter
 {
     public class Bullet : MonoBehaviour
     {
-        private PlayerController playerController;
-
         [SerializeField] private float bulletSpeed;
         private Rigidbody2D rigidBody;
         public float BulletSpeed { get { return bulletSpeed; } set { bulletSpeed = value; } }
@@ -25,7 +23,7 @@ namespace CodeShooter
             velo.y = bulletSpeed;
             rigidBody.velocity = velo;
             // Debug.Log($"{rigidBody.velocity.y}");
-        }
+        }        
     }
 
 }
