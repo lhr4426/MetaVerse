@@ -22,6 +22,9 @@ namespace Metaverse
 
         private Camera camera;
 
+        private Animator animator;
+        private static readonly int IsMoving = Animator.StringToHash("IsMove");
+
         [Header("Player Stats")]
         [SerializeField] private float speed = 1.0f;
         public float Speed { get { return speed; } }
@@ -32,6 +35,7 @@ namespace Metaverse
             _rigidbody = GetComponent<Rigidbody2D>();
             characterRenderer = GetComponentInChildren<SpriteRenderer>();
             camera = Camera.main;
+            animator = GetComponentInChildren<Animator>(); 
             
         }
         
@@ -46,29 +50,6 @@ namespace Metaverse
             Movement(MovementDirection);
         }
 
-        private void OnEnable()
-        {
-            Time.timeScale = 1.0f;
-            SceneManager.sceneLoaded += OnSceneLoaded;
-        }
-
-        private void OnDisable()
-        {
-            SceneManager.sceneLoaded -= OnSceneLoaded;
-        }
-
-        public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-        {
-            if(GlobalManager.instance.lastPosition != Vector2.zero)
-            {
-                transform.position = GlobalManager.instance.lastPosition;
-            }
-            else
-            {
-                transform.position = Vector2.zero;
-            }
-        }
-
         private void Rotate(Vector2 direction)
         {
             float xyAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
@@ -80,6 +61,8 @@ namespace Metaverse
         {
             direction = direction * Speed;
             _rigidbody.velocity = direction;
+            animator.SetBool(IsMoving, _rigidbody.velocity.magnitude > .5f);
+           
         }
 
         void OnMove(InputValue inputValue)
@@ -111,22 +94,12 @@ namespace Metaverse
             {
                 Debug.Log("상호작용 키 입력됨");
                 Debug.Log($"{LookDirection} 방향 보는 중");
-                LayerMask npcAndInteractive = LayerMask.GetMask("NPC") | LayerMask.GetMask("Interactive");
-                RaycastHit2D hit = Physics2D.Raycast(transform.position, LookDirection, 2f, npcAndInteractive);
+                LayerMask interactive = LayerMask.GetMask("Interactive");
+                RaycastHit2D hit = Physics2D.Raycast(transform.position, LookDirection, 2f, interactive);
                 if (hit.collider != null)
                 {
-                    if (hit.collider.CompareTag("NPC"))
-                    {
-                        Debug.Log("NPC와 상호작용 시도");
-                        BaseNPC npc = hit.collider.GetComponent<BaseNPC>();
-                        npc.ShowMessage();
-                    }
-                    else if (hit.collider.CompareTag("Interactive"))
-                    {
-                        BaseInteractive interactive = hit.collider.GetComponent<BaseInteractive>();
-                        interactive.Interact();
-                    }
-                    
+                    BaseInteractive baseInteractive = hit.collider.GetComponent<BaseInteractive>();
+                    baseInteractive.Interact();
                 }
             }
         }

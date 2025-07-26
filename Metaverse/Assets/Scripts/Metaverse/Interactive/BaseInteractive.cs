@@ -7,7 +7,7 @@ namespace Metaverse
 {
     public abstract class BaseInteractive : MonoBehaviour
     {
-        private string name;
+        [SerializeField] private string name;
         public string Name { get => name; set => name = value; }
         public virtual void Interact()
         {

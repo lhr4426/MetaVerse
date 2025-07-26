@@ -285,6 +285,7 @@ GameObject:
   m_Component:
   - component: {fileID: 123684377}
   - component: {fileID: 123684378}
+  - component: {fileID: 123684379}
   m_Layer: 0
   m_Name: MainSprite
   m_TagString: Untagged
@@ -359,6 +360,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &123684379
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 123684376}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7e072e9ccb86b4448b74a4e302d45239, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &250335542
 GameObject:
   m_ObjectHideFlags: 0
@@ -1169,6 +1191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46b8748cb006de14fb737618f9c6ceb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: 
 --- !u!61 &447509009
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1400,6 +1423,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a31d229787dd0d14ebfb9e555ee0d2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lastPosition: {x: 0, y: 0}
 --- !u!4 &575144386
 Transform:
   m_ObjectHideFlags: 0
@@ -1453,6 +1477,51 @@ Transform:
   - {fileID: 2767347171536957394}
   - {fileID: 5040732023743589108}
   m_Father: {fileID: 550853308}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &789471331
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 789471333}
+  - component: {fileID: 789471332}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &789471332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 789471331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 466076c5f27aed247b5bfd7d6b17bbd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 63156508}
+--- !u!4 &789471333
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 789471331}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6.1938953, y: 2.527612, z: 3.4809008}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1091289461
 GameObject:
@@ -10098,7 +10167,7 @@ GameObject:
   - component: {fileID: 4805282063273301653}
   - component: {fileID: 7808951114822970955}
   - component: {fileID: 7808951114822970956}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: GangHyeongWook
   m_TagString: NPC
   m_Icon: {fileID: 0}
@@ -10124,7 +10193,7 @@ GameObject:
   - component: {fileID: 4835105687061707622}
   - component: {fileID: 7919723124601865144}
   - component: {fileID: 7919723124601865145}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: JinYeongA
   m_TagString: NPC
   m_Icon: {fileID: 0}
@@ -10142,7 +10211,7 @@ GameObject:
   - component: {fileID: 4415761287319352476}
   - component: {fileID: 4525526716273875026}
   - component: {fileID: 8842400313272003752}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10221,7 +10290,7 @@ GameObject:
   - component: {fileID: 5040732023743589108}
   - component: {fileID: 7711704251217728042}
   - component: {fileID: 7711704251217728043}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: JeongJiWon
   m_TagString: NPC
   m_Icon: {fileID: 0}
@@ -10490,7 +10559,7 @@ GameObject:
   - component: {fileID: 6319358285899352386}
   - component: {fileID: 8738078222218703260}
   - component: {fileID: 8738078222218703261}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: KimDoYul
   m_TagString: NPC
   m_Icon: {fileID: 0}
@@ -10508,7 +10577,7 @@ GameObject:
   - component: {fileID: 6098895481017451429}
   - component: {fileID: 8814279054151138171}
   - component: {fileID: 8814279054151138172}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: JooSeulGi
   m_TagString: NPC
   m_Icon: {fileID: 0}
@@ -10816,7 +10885,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8781350904717863639}
   - component: {fileID: 962562070944990726}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: MainSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10863,7 +10932,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5334503575556045910}
   - component: {fileID: 6431784822596378943}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: MessagePivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10942,7 +11011,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5574465950294179895}
   - component: {fileID: 6780670316722068830}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: MessagePivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10989,7 +11058,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9164922065699470149}
   - component: {fileID: 843946687051618196}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: MainSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11006,7 +11075,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9117024649637090998}
   - component: {fileID: 720638168569412199}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: MainSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11023,7 +11092,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5542258430879018436}
   - component: {fileID: 6894925442709434541}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: MessagePivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11041,7 +11110,7 @@ GameObject:
   - component: {fileID: 6395322877260949691}
   - component: {fileID: 5629300374766446891}
   - component: {fileID: 5489824864780766905}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Message
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11169,7 +11238,7 @@ GameObject:
   - component: {fileID: 6446539852072600904}
   - component: {fileID: 5740188810370860248}
   - component: {fileID: 5591697440398107466}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Message
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11237,7 +11306,7 @@ GameObject:
   - component: {fileID: 1350205927001435124}
   - component: {fileID: 1240439123505841978}
   - component: {fileID: 6146725617208013760}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11255,7 +11324,7 @@ GameObject:
   - component: {fileID: 6786142152062007593}
   - component: {fileID: 5256460309707225273}
   - component: {fileID: 5386937029986213675}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Message
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11272,7 +11341,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6579777253053977863}
   - component: {fileID: 5194246903821289582}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: MessagePivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11289,7 +11358,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7532910493143958406}
   - component: {fileID: 2021081778937868119}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: MainSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11306,7 +11375,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7753854886262638945}
   - component: {fileID: 2241997573918238128}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: MainSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11323,7 +11392,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6359486528251387872}
   - component: {fileID: 5405678311563379337}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: MessagePivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11604,7 +11673,7 @@ GameObject:
   - component: {fileID: 5506672701792197279}
   - component: {fileID: 6535896504447933199}
   - component: {fileID: 6378406868802747549}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Message
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11660,7 +11729,7 @@ GameObject:
   - component: {fileID: 190089395296924279}
   - component: {fileID: 83699913646530233}
   - component: {fileID: 4995123169238706755}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11686,7 +11755,7 @@ GameObject:
   - component: {fileID: 5727134400716345464}
   - component: {fileID: 6459662685052211688}
   - component: {fileID: 6599418881785345658}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Message
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11720,7 +11789,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2996061689781811568}
   - component: {fileID: 4238338868053763097}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: MessagePivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11754,7 +11823,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1895576299650101233}
   - component: {fileID: 7982742061050266400}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: MainSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11983,7 +12052,7 @@ GameObject:
   - component: {fileID: 8319868398203458791}
   - component: {fileID: 8141406238508742697}
   - component: {fileID: 3785125371676740819}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12130,7 +12199,7 @@ GameObject:
   - component: {fileID: 4449249477147868175}
   - component: {fileID: 3125887694836710815}
   - component: {fileID: 2977422747471288845}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Message
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12266,7 +12335,7 @@ GameObject:
   - component: {fileID: 8099552384669081088}
   - component: {fileID: 8353449533027545806}
   - component: {fileID: 4005398512914679348}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12362,7 +12431,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4146573173307482355}
   - component: {fileID: 3084449875734216090}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: MessagePivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12379,7 +12448,7 @@ GameObject:
   m_Component:
   - component: {fileID: 743587579508225650}
   - component: {fileID: 9140009210519050915}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: MainSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12571,7 +12640,7 @@ GameObject:
   - component: {fileID: 7484276531742713539}
   - component: {fileID: 7230375504959572493}
   - component: {fileID: 2318252754417958647}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12608,7 +12677,7 @@ GameObject:
   - component: {fileID: 7380001523221105456}
   - component: {fileID: 7341150672952469502}
   - component: {fileID: 2421356644477276932}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12705,7 +12774,7 @@ GameObject:
   - component: {fileID: 1838363263147895097}
   - component: {fileID: 3995274082664911335}
   - component: {fileID: 6588526888795585038}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: WooSeungIl
   m_TagString: NPC
   m_Icon: {fileID: 0}
@@ -12724,7 +12793,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7a344e5363eea741968922f3b2b03a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: "\uC6B0\uC2B9\uC77C"
   messagePivot: {fileID: 9033527225488840228}
+  npcMessage: 
 --- !u!114 &6599418881785345658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12825,7 +12896,7 @@ GameObject:
   - component: {fileID: 3288006770735998348}
   - component: {fileID: 4287094950387016732}
   - component: {fileID: 4129341648842802062}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Message
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12885,7 +12956,7 @@ GameObject:
   - component: {fileID: 7003244527363667793}
   - component: {fileID: 7114152658338421663}
   - component: {fileID: 2792775512454573925}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12961,7 +13032,7 @@ GameObject:
   - component: {fileID: 2767347171536957394}
   - component: {fileID: 618869666336184076}
   - component: {fileID: 7245056493797489895}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: JoYeongJong
   m_TagString: NPC
   m_Icon: {fileID: 0}
@@ -12977,10 +13048,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 7245056493797489894}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd2e8c92308b25d4bb2700d6f972904c, type: 3}
+  m_Script: {fileID: 11500000, guid: cb27f31fe6b1ce74cbda37c9f8fb6fdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: "\uC870\uC601\uC885"
   messagePivot: {fileID: 4807930240833654991}
+  npcMessage: "\uC548\uB155\uD558\uC138\uC694 \uB538\uAE30\uC5D0\uC694"
 --- !u!222 &7341150672952469502
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -13096,10 +13169,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 511243187770620352}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 954b986bc7a8dfe409cc54e1431dc787, type: 3}
+  m_Script: {fileID: 11500000, guid: cb27f31fe6b1ce74cbda37c9f8fb6fdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: "\uC815\uC9C0\uC6D0"
   messagePivot: {fileID: 2389972769136170473}
+  npcMessage: "\uC548\uB155\uD558\uC138\uC694 \uB3A1\uB514\uC6D0\uC774\uC5D0\uC694"
 --- !u!4 &7753854886262638945
 Transform:
   m_ObjectHideFlags: 0
@@ -13169,10 +13244,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 19071554532787617}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 614d5ed145ebb6e42823e8649c8e4c4d, type: 3}
+  m_Script: {fileID: 11500000, guid: cb27f31fe6b1ce74cbda37c9f8fb6fdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: "\uAC15\uD615\uC6B1"
   messagePivot: {fileID: 2770116261058570632}
+  npcMessage: "\uACE0\uC591\uC774 \uADC0\uC5EC\uC6CC"
 --- !u!61 &7919723124601865144
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13227,10 +13304,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 141217874726578258}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a84f0fc9fbe5324baddf20e4a3eda9f, type: 3}
+  m_Script: {fileID: 11500000, guid: cb27f31fe6b1ce74cbda37c9f8fb6fdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: "\uC9C4\uC601\uC544"
   messagePivot: {fileID: 2866289937111794811}
+  npcMessage: "\uAD6C\uC870\uAC00 \uC911\uC694\uD558\uC8E0 \uC5ED\uC2DC"
 --- !u!212 &7982742061050266400
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13321,7 +13400,7 @@ GameObject:
   - component: {fileID: 169539064311528164}
   - component: {fileID: 1478826066983992180}
   - component: {fileID: 1636306416926661862}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Message
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13366,7 +13445,7 @@ GameObject:
   - component: {fileID: 3924931023088236113}
   - component: {fileID: 1767973747342069391}
   - component: {fileID: 8400387658842269030}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: JeongGweonWoo
   m_TagString: NPC
   m_Icon: {fileID: 0}
@@ -13382,10 +13461,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 8400387658842269029}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 184d0cfb9aa88304f83881b76282e4c7, type: 3}
+  m_Script: {fileID: 11500000, guid: cb27f31fe6b1ce74cbda37c9f8fb6fdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: "\uC815\uAD8C\uC6B0"
   messagePivot: {fileID: 5955592125089204556}
+  npcMessage: "\uBE60\uBE60\uB8FD"
 --- !u!61 &8738078222218703260
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13440,10 +13521,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1539902356244142710}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74e781406bff7e844a77f79df55f5463, type: 3}
+  m_Script: {fileID: 11500000, guid: cb27f31fe6b1ce74cbda37c9f8fb6fdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: "\uAE40\uB3C4\uC728"
   messagePivot: {fileID: 3705471157351757407}
+  npcMessage: "\uC81C\uBC1C \uD0A4\uC6C0\uC544 \uC774\uAE30\uB77C\uACE0 \uC81C\uBC1C!!!!!"
 --- !u!4 &8781350904717863639
 Transform:
   m_ObjectHideFlags: 0
@@ -13513,10 +13596,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1607691374533808273}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca17c766ce167e445b369ed6d8efab88, type: 3}
+  m_Script: {fileID: 11500000, guid: cb27f31fe6b1ce74cbda37c9f8fb6fdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: "\uC8FC\uC2AC\uAE30"
   messagePivot: {fileID: 3493955087177104568}
+  npcMessage: "\uCA4C\uAE30\uCA4C \uB4F1\uC7A5"
 --- !u!114 &8842400313272003752
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13557,7 +13642,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2714204561448479002}
   - component: {fileID: 5849295957951382987}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: MainSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13574,7 +13659,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1616963830124085147}
   - component: {fileID: 375241930993951474}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: MessagePivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13673,3 +13758,4 @@ SceneRoots:
   - {fileID: 250335546}
   - {fileID: 2131840589}
   - {fileID: 575144386}
+  - {fileID: 789471333}

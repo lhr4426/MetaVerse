@@ -1,0 +1,54 @@
+{
+    "name": "CodeShooter Player Input Action",
+    "maps": [
+        {
+            "name": "Player",
+            "id": "86e5e687-dd19-4584-bf26-d6e01169c214",
+            "actions": [
+                {
+                    "name": "Move",
+                    "type": "Value",
+                    "id": "7934ecc5-3007-4cb5-9d23-81d8a9eacc73",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Fire",
+                    "type": "Value",
+                    "id": "d48abc17-7548-4d92-af85-3aab890207a9",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "d5ca8187-365a-44f9-be4f-163a471eb775",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "30af90a6-4f28-4b30-826e-4dd24e51c18b",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Fire",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

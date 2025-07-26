@@ -5,15 +5,15 @@ using UnityEngine;
 
 namespace Metaverse
 {
-    public class BaseNPC : MonoBehaviour
+    public class BaseNPC : BaseInteractive
     {
-        private string name;
-        public string Name { get => name; set => name = value; }
-
         [SerializeField] private GameObject messagePivot;
         public GameObject MessagePivot { get => messagePivot; set => messagePivot = value; }
 
         protected TextMeshProUGUI message;
+
+        [SerializeField] protected string npcMessage;
+        public string NpcMessage { get => npcMessage; }
 
         protected virtual void Start()
         {
@@ -22,9 +22,15 @@ namespace Metaverse
                 Debug.LogError($"{Name}'s Message Pivot is Null");
             }
             message = MessagePivot.GetComponentInChildren<TextMeshProUGUI>();
+            message.text = NpcMessage;
             MessagePivot.SetActive(false);
-            // 나중에 상속받아서 override 로 메시지 내용 지정하면 됨
             return;
+        }
+
+        public override void Interact()
+        {
+            base.Interact();
+            ShowMessage();
         }
 
         public void ShowMessage()

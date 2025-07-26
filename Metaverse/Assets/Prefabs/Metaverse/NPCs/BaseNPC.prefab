@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4835105687066782726}
   - component: {fileID: 7919723124588401880}
-  m_Layer: 6
+  - component: {fileID: 8047653857115186935}
+  m_Layer: 7
   m_Name: BaseNPC
   m_TagString: NPC
   m_Icon: {fileID: 0}
@@ -79,6 +80,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.6}
   m_EdgeRadius: 0
+--- !u!114 &8047653857115186935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 141217874724126514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb27f31fe6b1ce74cbda37c9f8fb6fdc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  messagePivot: {fileID: 2866289937115632411}
+  npcMessage: 
 --- !u!1 &2803094393398032825
 GameObject:
   m_ObjectHideFlags: 0
@@ -89,7 +104,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9164922065729973285}
   - component: {fileID: 843946687046795508}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: MainSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -173,7 +188,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5542258430849039012}
   - component: {fileID: 6894925442694850509}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: MessagePivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -235,7 +250,7 @@ GameObject:
   - component: {fileID: 6395322877256663003}
   - component: {fileID: 5629300374737518155}
   - component: {fileID: 5489824864800070105}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Message
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -369,7 +384,7 @@ GameObject:
   - component: {fileID: 7484276531730035107}
   - component: {fileID: 7230375504930643309}
   - component: {fileID: 2318252754431748503}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}

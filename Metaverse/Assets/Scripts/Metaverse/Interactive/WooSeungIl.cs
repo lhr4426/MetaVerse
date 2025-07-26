@@ -14,7 +14,8 @@ namespace Metaverse
             DateTime startDate = Convert.ToDateTime("2025/06/30 09:00");
             DateTime today = DateTime.Now;
             TimeSpan timeSpan = today - startDate;
-            message.text = $"여기서 못 나간지 벌써 {timeSpan.Days}일째야...";
+            npcMessage = $"여기서 못 나간지 벌써 {timeSpan.Days}일째야...";
+            message.text = NpcMessage;
         }
     }
 }
