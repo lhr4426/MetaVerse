@@ -25,7 +25,14 @@ namespace FlappyPlane
 
         public override void GameOver()
         {
-            base.GameOver();
+            Debug.Log("Game Over!");
+            int bestScore = PlayerPrefs.GetInt(bestScoreKey, 0);
+            if (currentScore > bestScore)
+            {
+                bestScore = currentScore;
+                PlayerPrefs.SetInt(bestScoreKey, bestScore);
+            }
+            Debug.Log($"key : {bestScoreKey} | score : {bestScore}");
             uiManager.SetGameOver(currentScore, bestScore);
         }
 

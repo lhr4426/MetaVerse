@@ -1,20 +1,31 @@
+using CodeShooter;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+
+namespace CodeShooter
 {
-    [SerializeField] 
-
-    // Start is called before the first frame update
-    void Start()
+    public class Bullet : MonoBehaviour
     {
-        
+        private PlayerController playerController;
+
+        [SerializeField] private float bulletSpeed;
+        private Rigidbody2D rigidBody;
+        public float BulletSpeed { get { return bulletSpeed; } set { bulletSpeed = value; } }
+
+        private void Start()
+        {
+            rigidBody = GetComponent<Rigidbody2D>();
+        }
+
+        private void FixedUpdate()
+        {
+            Vector3 velo = rigidBody.velocity;
+            velo.y = bulletSpeed;
+            rigidBody.velocity = velo;
+            // Debug.Log($"{rigidBody.velocity.y}");
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

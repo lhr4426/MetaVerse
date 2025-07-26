@@ -8,7 +8,8 @@ namespace Metaverse
     public enum SceneNumber
     {
         Metaverse,
-        FlappyPlane
+        FlappyPlane,
+        CodeShooter
     }
 
 
@@ -37,10 +38,9 @@ namespace Metaverse
             
             if (sceneNumber != SceneNumber.Metaverse)
             {
-                if(sceneNumber == SceneNumber.FlappyPlane)
-                {
-                    FlappyPlane.GameManager.isFirstLoading = true;
-                }
+                if(sceneNumber == SceneNumber.FlappyPlane) FlappyPlane.GameManager.isFirstLoading = true;
+                else if(sceneNumber == SceneNumber.CodeShooter) CodeShooter.GameManager.isFirstLoading = true;
+
 
                 GameObject player = FindObjectOfType<PlayerController>().gameObject;
                 lastPosition = player.transform.position;

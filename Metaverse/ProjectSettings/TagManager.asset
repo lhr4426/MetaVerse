@@ -7,6 +7,7 @@ TagManager:
   - NPC
   - BackGround
   - Interactive
+  - Bullet
   layers:
   - Default
   - TransparentFX

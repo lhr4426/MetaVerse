@@ -14,7 +14,7 @@ namespace Global
 
         public static bool isFirstLoading = true;
 
-        protected string bestScoreKey = "";
+        protected string bestScoreKey;
 
         
 
@@ -37,17 +37,7 @@ namespace Global
 
         public abstract void StartGame();
 
-        public virtual void GameOver()
-        {
-
-            Debug.Log("Game Over!");
-            int bestScore = PlayerPrefs.GetInt(bestScoreKey, 0);
-            if(currentScore > bestScore)
-            {
-                bestScore = currentScore;
-                PlayerPrefs.SetInt(bestScoreKey, bestScore);
-            }
-        }
+        public abstract void GameOver();
 
         public void RestartGame()
         {

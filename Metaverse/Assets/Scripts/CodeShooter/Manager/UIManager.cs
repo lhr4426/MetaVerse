@@ -14,6 +14,7 @@ namespace CodeShooter
     public class UIManager : MonoBehaviour
     {
         private UIState currentState;
+        public UIState CurrentState { get { return currentState; } }
 
         private HomeUI homeUI;
         private GameUI gameUI;
@@ -22,16 +23,16 @@ namespace CodeShooter
 
         private void Awake()
         {
-            homeUI = FindObjectOfType<HomeUI>();
+            homeUI = GetComponentInChildren<HomeUI>(true);
             homeUI.Init(this);
 
-            gameUI = FindObjectOfType<GameUI>();
+            gameUI = GetComponentInChildren<GameUI>(true);
             gameUI.Init(this);
 
-            pauseUI = FindObjectOfType<PauseUI>();
+            pauseUI = GetComponentInChildren<PauseUI>(true);
             pauseUI.Init(this);
 
-            gameOverUI = FindObjectOfType<GameOverUI>();
+            gameOverUI = GetComponentInChildren<GameOverUI>(true);
             gameOverUI.Init(this);
 
             ChangeUI(currentState);
@@ -55,13 +56,6 @@ namespace CodeShooter
             Debug.Log("게임 시작");
         }
 
-        public void SetPlayGame()
-        {
-            currentState = UIState.Game;
-            Time.timeScale = 1f;
-            ChangeUI(currentState);
-        }
-
         public void SetGameOver(int score, int bestScore)
         {
             currentState = UIState.GameOver;
@@ -73,24 +67,29 @@ namespace CodeShooter
 
         public void UpdateScore(int score)
         {
-            // gameUI.SetScore(score);
+            gameUI.SetScore(score);
         }
 
-        public void PauseGame(bool isPause)
+        public void PauseGame()
         {
-            // TODO : Pause 구현하기
-            if (isPause)
+            if (CurrentState == UIState.Game)
             {
                 currentState = UIState.Pause;
                 Time.timeScale = 0f;
             }
-            else
+            else if (CurrentState == UIState.Pause)
             {
                 currentState = UIState.Game;
                 Time.timeScale = 1f;
             }
-                
+            else return;
             ChangeUI(currentState);
+        }
+
+        public void SetTime()
+        {
+            if (gameUI.enabled)
+                gameUI.SetTime();
         }
     }
 

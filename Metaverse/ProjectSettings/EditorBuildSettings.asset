@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/FlappyPlaneScene.unity
     guid: bc2d9d3e46a86164eb33c7cb8c82ff1e
+  - enabled: 1
+    path: Assets/Scenes/CodeShooterScene.unity
+    guid: 44a7eec63de4ebc4493a068350d54bd1
   m_configObjects: {}

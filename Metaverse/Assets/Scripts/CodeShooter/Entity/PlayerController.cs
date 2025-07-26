@@ -13,22 +13,15 @@ namespace CodeShooter
         [SerializeField] private GameObject bullet;
         [SerializeField] private GameObject projectilePivot;
 
+        private ParticleSystem particleSystem;
+        private GameManager gameManager;
+
 
         private void Awake()
         {
             camera = Camera.main;
-        }
-
-        // Start is called before the first frame update
-        void Start()
-        {
-
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-            
+            particleSystem = GetComponentInChildren<ParticleSystem>();
+            gameManager = FindFirstObjectByType<GameManager>();
         }
 
         void OnMove(InputValue inputValue)
@@ -43,8 +36,9 @@ namespace CodeShooter
         {
             if (inputValue.isPressed)
             {
-
-                Instantiate(bullet, projectilePivot.transform);
+                Vector3 position = projectilePivot.transform.position;
+                GameObject go = Instantiate(bullet, position, Quaternion.identity);
+                particleSystem.Play();
             }
         }
     }
