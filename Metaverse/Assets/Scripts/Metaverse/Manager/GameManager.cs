@@ -9,8 +9,7 @@ namespace Metaverse
     public class GameManager : MonoBehaviour
     {
 
-        private static GameManager instance;
-        public GameManager Instance {  get { return instance; } }
+        public static GameManager instance;
 
         [SerializeField] private GameObject player;
         public GameObject Player { get { return player; } }
