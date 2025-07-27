@@ -9,6 +9,7 @@ TagManager:
   - Interactive
   - Bullet
   - Enemy
+  - LeaderBoardData
   layers:
   - Default
   - TransparentFX

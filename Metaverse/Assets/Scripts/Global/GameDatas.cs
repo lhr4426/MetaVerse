@@ -8,7 +8,7 @@ namespace Global
     [Serializable]
     public class GameDatas
     {
-        public List<GameData> DataList { get; set; }
+        public List<GameData> dataList = new();
     }
 
 }

@@ -12,8 +12,8 @@ namespace Metaverse
 
         public void SetText(Global.GameData data)
         {
-            scoreText.text = data.Score.ToString() + "Á¡";
-            timeText.text = data.Date;
+            scoreText.text = data.score.ToString() + "Á¡";
+            timeText.text = data.date;
         }
     }
 }
