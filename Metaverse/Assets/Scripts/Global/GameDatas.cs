@@ -6,9 +6,9 @@ using UnityEngine;
 namespace Global
 {
     [Serializable]
-    public struct GameDatas
+    public class GameDatas
     {
-        public List<GameData> dataList;
+        public List<GameData> DataList { get; set; }
     }
 
 }

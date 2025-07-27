@@ -6,15 +6,20 @@ using UnityEngine;
 namespace Global
 {
     [Serializable]
-    public struct GameData
+    public class GameData
     {
-        public DateTime Date { get; set; }
+        public string Date { get; set; }
         public int Score { get; set; }
 
-        public GameData(DateTime date, int score)
+        public GameData(string date, int score)
         {
             this.Date = date;
             this.Score = score;
+        }
+
+        public override string ToString()
+        {
+            return this.Date + " | " + this.Score.ToString();
         }
     }
 }

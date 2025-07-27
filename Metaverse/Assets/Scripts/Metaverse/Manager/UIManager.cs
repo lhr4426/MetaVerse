@@ -12,6 +12,8 @@ namespace Metaverse
 
         public TextMeshProUGUI roomText;
 
+        public LeaderBoard leaderBoard;
+
         private void Awake()
         {
             instance = this;
@@ -32,6 +34,15 @@ namespace Metaverse
         public void ExitRoom()
         {
             roomText.text = "";
+        }
+
+        public void SetLeaderBoard(string sceneName)
+        {
+            leaderBoard.gameObject.SetActive(true);
+            leaderBoard.SetTitle(sceneName);
+
+            Global.GameDatas gameDatas = Global.GlobalManager.instance.LoadLeaderBoard(sceneName);
+            leaderBoard.AddDatas(gameDatas);
         }
     }
 
