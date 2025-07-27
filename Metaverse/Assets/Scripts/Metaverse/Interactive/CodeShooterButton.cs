@@ -9,7 +9,7 @@ public class CodeShooterButton : BaseInteractive
         public override void Interact()
         {
             base.Interact();
-            GlobalManager.instance.SceneChange(SceneNumber.CodeShooter);
+            Global.GlobalManager.instance.SceneChange(Global.SceneNumber.CodeShooter);
         }
     }
 }

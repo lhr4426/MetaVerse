@@ -57,7 +57,6 @@ namespace CodeShooter
             GameObject go = Instantiate(NPCPrefab, randomPos, Quaternion.identity);
             Enemy enemy = go.GetComponent<Enemy>();
             enemy.Init(gameManager);
-            Debug.Log($"Sprite Number : {spriteNum}");
             enemy.SetSprite(sprite);
         }
     }

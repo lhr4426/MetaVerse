@@ -535,7 +535,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed3551837062d9448b5ac1f4a7055a59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxTime: 60
+  maxTime: 5
   player: {fileID: 590500618}
 --- !u!4 &233649299
 Transform:

@@ -19,7 +19,7 @@ namespace CodeShooter
         }
         public void OnClickExit()
         {
-            GlobalManager.instance.SceneChange(SceneNumber.Metaverse);
+            Global.GlobalManager.instance.SceneChange(Global.SceneNumber.Metaverse);
         }
     }
 }

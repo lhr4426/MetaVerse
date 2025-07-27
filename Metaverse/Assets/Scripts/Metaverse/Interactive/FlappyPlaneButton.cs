@@ -10,7 +10,7 @@ namespace Metaverse
         public override void Interact()
         {
             base.Interact();
-            GlobalManager.instance.SceneChange(SceneNumber.FlappyPlane);
+            Global.GlobalManager.instance.SceneChange(Global.SceneNumber.FlappyPlane);
         }
     }
 }

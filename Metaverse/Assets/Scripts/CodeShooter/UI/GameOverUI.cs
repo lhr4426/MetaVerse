@@ -18,6 +18,7 @@ namespace CodeShooter
         public Button restartButton;
         public Button exitButton;
 
+        int score;
         private void Awake()
         {
             if (restartButton == null || exitButton == null)
@@ -37,7 +38,8 @@ namespace CodeShooter
 
         public void SetScore(int score)
         {
-            scoreText.text = score.ToString() + "Á¡";
+            this.score = score;
+            scoreText.text = this.score.ToString() + "Á¡";
         }
 
         public void SetBestScore(int bestScore)
@@ -52,7 +54,10 @@ namespace CodeShooter
 
         public void OnClickExit()
         {
-            GlobalManager.instance.SceneChange(SceneNumber.Metaverse);
+            Global.GlobalManager.instance.LeaderBoardUpdate(
+                Global.SceneNumber.CodeShooter.ToString(),
+                this.score);
+            Global.GlobalManager.instance.SceneChange(Global.SceneNumber.Metaverse);
         }
 
     }

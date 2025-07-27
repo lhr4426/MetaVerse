@@ -45,10 +45,10 @@ namespace Metaverse
 
         public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
         {
-            if (GlobalManager.instance.lastPosition != Vector2.zero)
+            if (Global.GlobalManager.instance.lastPosition != Vector2.zero)
             {
 
-                player.transform.position = GlobalManager.instance.lastPosition;
+                player.transform.position = Global.GlobalManager.instance.lastPosition;
             }
             else
             {

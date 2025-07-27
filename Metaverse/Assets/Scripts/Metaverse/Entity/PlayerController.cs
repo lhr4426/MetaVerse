@@ -92,8 +92,8 @@ namespace Metaverse
         {
             if(inputValue.isPressed)
             {
-                Debug.Log("상호작용 키 입력됨");
-                Debug.Log($"{LookDirection} 방향 보는 중");
+                // Debug.Log("상호작용 키 입력됨");
+                // Debug.Log($"{LookDirection} 방향 보는 중");
                 LayerMask interactive = LayerMask.GetMask("Interactive");
                 RaycastHit2D hit = Physics2D.Raycast(transform.position, LookDirection, 2f, interactive);
                 if (hit.collider != null)

@@ -18,6 +18,8 @@ namespace FlappyPlane
         public Button restartButton;
         public Button exitButton;
 
+        int score;
+
         private void Awake()
         {
             if (restartButton == null || exitButton == null)
@@ -37,7 +39,8 @@ namespace FlappyPlane
 
         public void SetScore(int score)
         {
-            scoreText.text = score.ToString();
+            this.score = score;
+            scoreText.text = this.score.ToString();
         }
 
         public void SetBestScore(int bestScore)
@@ -52,7 +55,10 @@ namespace FlappyPlane
 
         public void OnClickExit()
         {
-            GlobalManager.instance.SceneChange(SceneNumber.Metaverse);
+            Global.GlobalManager.instance.LeaderBoardUpdate(
+                Global.SceneNumber.FlappyPlane.ToString(),
+                this.score);
+            Global.GlobalManager.instance.SceneChange(Global.SceneNumber.Metaverse);
         }
 
 
