@@ -24,6 +24,150 @@
 
 <br>
 
+## 시스템 구성도
+
+```mermaid
+---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: elk
+---
+classDiagram
+direction LR
+	namespace CodeShooter {
+        class Entity_2["Entity"] {
+        }
+        class Manager_2["Manager"] {
+        }
+        class UI {
+        }
+        class Bullet {
+        }
+        class Enemy {
+        }
+        class PlayerController_2["PlayerController"] {
+        }
+        class Wall {
+        }
+        class BaseUI {
+        }
+        class UIs {
+        }
+        class GameManager_3["GameManager"] {
+        }
+        class SpawnManager {
+        }
+        class UIManager_2["UIManager"] {
+        }
+	}
+	namespace FlappyPlane {
+        class Entity_3["Entity"] {
+        }
+        class Manager_3["Manager"] {
+        }
+        class UI_2["UI"] {
+        }
+        class BgLooper {
+        }
+        class FollowCamera_2["FollowCamera"] {
+        }
+        class Obstacle {
+        }
+        class Player {
+        }
+        class GameManager_4["GameManager"] {
+        }
+        class UIManager_3["UIManager"] {
+        }
+        class BaseUI_2["BaseUI"] {
+        }
+        class UIs_2["UIs"] {
+        }
+	}
+	namespace Global {
+        class GlobalManager {
+        }
+        class GameManager {
+        }
+        class GameDatas {
+        }
+        class GameData {
+        }
+	}
+	namespace Metaverse {
+        class Entity {
+        }
+        class Interactive {
+        }
+        class Manager {
+        }
+        class Room {
+        }
+        class BaseRoom {
+        }
+        class Rooms {
+        }
+        class GameManager_2["GameManager"] {
+        }
+        class UIManager {
+        }
+        class FollowCamera {
+        }
+        class PlayerController {
+        }
+        class LeaderBoard {
+        }
+        class LeaderBoardData {
+        }
+        class BaseNPC {
+        }
+        class BaseInterative {
+	        +interact()
+        }
+        class Buttons {
+        }
+        class NPCs {
+        }
+        class Weapon {
+        }
+	}
+
+    GlobalManager -- GameDatas
+    GameDatas o-- GameData
+    Manager -- GameManager_2
+    Manager -- UIManager
+    Entity -- FollowCamera
+    Entity -- PlayerController
+    Entity -- LeaderBoard
+    LeaderBoard o-- LeaderBoardData
+    Interactive -- BaseInterative
+    BaseInterative -- BaseNPC
+    BaseInterative -- Buttons
+    BaseNPC <|-- NPCs
+    BaseInterative -- Weapon
+    Entity_2 -- Bullet
+    Entity_2 -- Enemy
+    Entity_2 -- PlayerController_2
+    Entity_2 -- Wall
+    UI -- BaseUI
+    BaseUI <|-- UIs
+    Manager_2 -- UIManager_2
+    Manager_2 -- SpawnManager
+    Manager_2 -- GameManager_3
+    Entity_3 -- FollowCamera_2
+    Entity_3 -- BgLooper
+    Entity_3 -- Obstacle
+    Entity_3 -- Player
+    Manager_3 -- UIManager_3
+    Manager_3 -- GameManager_4
+    UI_2 -- BaseUI_2
+    BaseUI_2 <|-- UIs_2
+    Room -- BaseRoom
+    BaseRoom <|-- Rooms
+```
+
+
 ## 구현 기능
 
 ### 필수 기능
