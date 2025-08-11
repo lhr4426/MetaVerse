@@ -210,7 +210,7 @@ direction LR
 
 ## 라이센스
 
-MIT &copy; [NoHack](mailto:lbjp114@gmail.com)
+MIT &copy; [LeeHyerim](mailto:hyerimlee4426@gmail.com)
 
 <!-- Stack Icon Refernces -->
 
